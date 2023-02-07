@@ -18,6 +18,21 @@ function onPlay (data) {
     console.log(actSec);
 
     localStorage.setItem("videoplayer-current-time", actSec);
-};
+    };
 
 player.on('timeupdate', onPlay);
+
+let currentTime = localStorage.getItem("videoplayer-current-time")
+
+player.setCurrentTime(currentTime).then(function(seconds) {
+
+    console.log(seconds)
+
+}).catch(function(error) {
+    switch (error.name) {
+        case 'RangeError':
+            break;
+        default:
+            break;
+    }
+});
