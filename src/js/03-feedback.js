@@ -22,7 +22,3 @@ function saveMessage(evt) {
     localStorage.setItem("feedback-form-state", JSON.stringify(objInfo));
     sendInfo.reset();
 };
-
-
-textMail.addEventListener(`imput`, _.throttle(saveMessage, 500))
-textArea.addEventListener(`imput`, _.throttle(saveMessage, 500))
