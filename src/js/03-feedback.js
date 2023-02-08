@@ -1,5 +1,3 @@
-import throttle from "lodash.throttle";
-
 const textMail = document.querySelector(".email_user");
 const textArea = document.querySelector(".text_user");
 const sendInfo = document.querySelector(".feedback-form")
@@ -22,3 +20,6 @@ function saveMessage(evt) {
     localStorage.setItem("feedback-form-state", JSON.stringify(objInfo));
     sendInfo.reset();
 };
+
+
+sendInfo.addEventListener(`submit`, _.throttle(5000))
