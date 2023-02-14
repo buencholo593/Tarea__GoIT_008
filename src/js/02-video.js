@@ -19,8 +19,9 @@ function onPlay (data) {
     console.log(actSec);
 
     localStorage.setItem("videoplayer-current-time", actSec);
-    };
+};
 
+var throttleTime = throttle(onPlay,1000);
 player.on('timeupdate', throttleTime);
 
 let currentTime = localStorage.getItem("videoplayer-current-time")
@@ -37,5 +38,3 @@ player.setCurrentTime(currentTime).then(function(seconds) {
             break;
     }
 });
-
-var throttleTime = throttle(onPlay,1000);
